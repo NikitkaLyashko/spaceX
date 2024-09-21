@@ -1,20 +1,37 @@
 import pygame,picture
 
 class Player():
-    def __init__(self):
-        self.cosmo_ship = picture.Picture("sprites/Enemy.png", [120, 150], 700, 500)
-        return self
+    def __init__(self,put,size,x,y):
+        self.put=put
+        self.size=size
+        self._x=x
+        self.y=y
+
+
+
+
+        self.cosmo_ship_for_draw = picture.Picture(self.put, self.size, self._x, self.y)
+
+
+    # def __init__(self,x,y,size,picture1,action):
+    #     self.x=x
+    #     self.y=y
+    #     self.size=size
+    #     self.def_action=action
+    #
 
 
 
 
 
+    def draw(self, place: pygame.Surface):
+        self.cosmo_ship_for_draw.draw(place)
 
+    @property
+    def X(self):
+        return  self._x
 
-
-
-    def draw(self,place):
-        self.cosmo_ship.draw(place)
-
-
-
+    @X.setter
+    def X(self, x):
+        self._x=x
+        self.cosmo_ship_for_draw.x=self._x
