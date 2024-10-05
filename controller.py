@@ -2,6 +2,7 @@ import pygame
 
 import model
 import player
+import rock_space
 import view
 from model import moving_ship_2
 
@@ -15,8 +16,11 @@ pygame.time.set_timer(free_type, 10)
 pygame.time.set_timer(free_type2, 10000)
 
 
+
 def cotroller():
     events=pygame.event.get()
+    model.rock_space_x.controller(events)
+
 
     for event in events:
 
