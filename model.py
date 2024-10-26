@@ -1,3 +1,5 @@
+import random
+
 import pygame.time
 
 import player
@@ -16,6 +18,15 @@ def moving_ship_2(x):
     ship_2.X+=5
     return 123
 
+def move_rock():
+    global next_rock
+
+    next_rock=rock_space.Rock_space(random.randint(30,1500),30)
+    rocks.append(next_rock)
+
+
+
+
 
 
 
@@ -23,7 +34,6 @@ def moving_ship_2(x):
 
 main_ship=player.Player("sprites/Enemy.png",[120,120],700,550)
 ship_2=second_ship.Second_ship(-50,300)
-rock_space_x= rock_space.Rock_space(750, 100)
 clock=pygame.time.Clock()
-
-
+next_rock=rock_space.Rock_space(700,0)
+rocks=[next_rock]
