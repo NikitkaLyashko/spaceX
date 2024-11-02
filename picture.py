@@ -1,4 +1,10 @@
 import pygame
+from Tools.demo.ss1 import center
+from pygame.cursors import sizer_x_strings
+
+import rock_space
+
+
 class Picture():
     def  __init__(self,put_k_file,size,x,y):
         self.put=put_k_file
@@ -17,11 +23,18 @@ class Picture():
         return self.rezult_dergee
 
     def draw_debug(self,place:pygame.Surface):
-        pygame.draw.rect(place,[0,255,0],[self.x,self.y,self.rotated_rock.get_width(),self.rotated_rock.get_height()],2)
+        pygame.draw.rect(place,[0,255,0],[self.x,self.y,self.size2[0],self.size2[1]],1)
+        center_X=self.x+self.size2[0]/2
+        center_Y=self.y+self.size2[1]/2
+        pygame.draw.circle(place,[0,0,222],[center_X,center_Y],2)
+        pygame.draw.rect(place,[255,0,0],[center_X-self.rotated_rock.get_width()/2,center_Y-self.rotated_rock.get_height()/2,
+                                          self.rotated_rock.get_width(),self.rotated_rock.get_height()],2)
 
     def draw(self,place:pygame.Surface):
+        center_X=self.x+self.size2[0]/2
+        center_Y=self.y+self.size2[1]/2
         # place.blit(self.object1,[self.x,self.y])
-        place.blit(self.rotated_rock,[self.x,self.y])
+        place.blit(self.rotated_rock,[center_X-self.rotated_rock.get_width()/2,center_Y-self.rotated_rock.get_height()/2])
 
     def rotation_def(self):
         self.rotated_rock=pygame.transform.rotate(self.object1,self.degree_())

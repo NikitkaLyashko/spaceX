@@ -26,12 +26,6 @@ def move_rock():
 
 
 
-
-
-
-
-
-
 main_ship=player.Player("sprites/Enemy.png",[120,120],700,550)
 ship_2=second_ship.Second_ship(-50,300)
 clock=pygame.time.Clock()

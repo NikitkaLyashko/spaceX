@@ -16,7 +16,7 @@ class Rock_space():
 
     def draw(self, place: pygame.Surface):
         self.rock.draw(place)
-        self.rock.draw_debug(place)
+        # self.rock.draw_debug(place)
 
     def controller(self,events):
 
