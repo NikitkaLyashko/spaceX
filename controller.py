@@ -1,3 +1,5 @@
+import random
+
 import pygame
 
 import model
@@ -37,7 +39,9 @@ def cotroller():
         if event.type == pygame.KEYDOWN and event.key == pygame.K_a:
             model.moving_ship(-5)
 
-
+        if event.type==pygame.KEYUP and event.key== pygame.K_SPACE:
+            model.line_HP.xxx=random.randint(5,1000)
+            print(model.line_HP.xxx)
         if event.type==free_rock:
             model.move_rock()
 

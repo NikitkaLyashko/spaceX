@@ -2,7 +2,7 @@ import random
 
 import pygame.time
 
-import player
+import player,class_HP
 import rock_space
 
 import second_ship
@@ -31,3 +31,4 @@ ship_2=second_ship.Second_ship(-50,300)
 clock=pygame.time.Clock()
 next_rock=rock_space.Rock_space(700,0)
 rocks=[next_rock]
+line_HP=class_HP.Hp(1170,25,300,50)
