@@ -1,8 +1,4 @@
 import pygame
-from Tools.demo.ss1 import center
-from pygame.cursors import sizer_x_strings
-
-import rock_space
 
 
 class Picture():
