@@ -18,6 +18,8 @@ class Rock_space():
         self.rock.draw(place)
         # self.rock.draw_debug(place)
 
+
+
     def controller(self,events):
 
         for event in events:

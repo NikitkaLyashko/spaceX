@@ -2,7 +2,7 @@ import random
 
 import pygame
 
-import model
+import model , bulba
 import player
 import rock_space
 import view
@@ -41,7 +41,15 @@ def cotroller():
 
         if event.type==pygame.KEYUP and event.key== pygame.K_SPACE:
             model.line_HP.now_hp=random.randint(5,1000)
-            print(model.line_HP.now_hp)
+
+        if event.type==pygame.MOUSEBUTTONDOWN and event.button==pygame.BUTTON_LEFT:
+            model.new_bullet()
+
+
+
+            ###По задумке бульба должна лететь пр нажат на кнопку ЛКМ.###
+            ###Есть класс бульба###
+
         if event.type==free_rock:
             model.move_rock()
 
