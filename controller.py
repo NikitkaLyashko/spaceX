@@ -28,12 +28,13 @@ def cotroller():
     for controller_rock in model.rocks:
         controller_rock.controller(events)
 
-
+    for bullet2 in model.bullets:
+        bullet2.controller(events)
 
     for event in events:
 
         if event.type==pygame.KEYDOWN and event.key==pygame.K_d:
-            print("1111")
+
             model.moving_ship(5)
 
         if event.type == pygame.KEYDOWN and event.key == pygame.K_a:
@@ -44,6 +45,8 @@ def cotroller():
 
         if event.type==pygame.MOUSEBUTTONDOWN and event.button==pygame.BUTTON_LEFT:
             model.new_bullet()
+
+
 
 
 

@@ -26,10 +26,10 @@ def view():
         #     rock_view.draw(wind)
         #     model.rocks.remove(rock_view)
         #     model.del_rock_from_model=0
-    print(model.bullets)
-    for view_bullet in model.bullets:
-        print("вызов дроу")
-        view_bullet.draw(wind)
+
+    # for view_bullet in model.bullets:
+
+        # view_bullet.draw(wind)
 
 
 

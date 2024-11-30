@@ -17,7 +17,6 @@ def moving_ship_2(x):
 
 def move_rock():
     global  del_rock_from_model
-    print(len(rocks))
     next_rock=rock_space.Rock_space(random.randint(30,1500),30)
     rocks.append(next_rock)
     for del_rock in rocks:
@@ -27,9 +26,8 @@ def move_rock():
             del_rock_from_model=1
 
 def new_bullet():
-    bulba_object = bulba.Bullet("sprites/bullet.png", [7, 13], main_ship.X + 57, main_ship.Y + 57)
+    bulba_object = bulba.Bullet("sprites/bullet.png", [7, 13], main_ship.X + 57, main_ship.Y + 57,rocks)
     bullets.append(bulba_object)
-    print(bullets)
 
 
 
