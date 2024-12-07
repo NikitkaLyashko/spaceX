@@ -7,12 +7,13 @@ pygame.time.set_timer(free_type, 10)
 
 class Rock_space():
 
-    def __init__(self,x,y):
+    def __init__(self,x,y,size=50):
         self._x=x
         self.y=y
+        self.size=[size,size]
         self.x__ = random.randint(-1, 1)
-        self.rock=picture.Picture("sprites/Meteorit.png",[50,50],self._x,self.y)
-        self.rect_rock=pygame.rect.Rect(self._x,self.rock.y,50,50)
+        self.rock=picture.Picture("sprites/Meteorit.png",self.size,self._x,self.y)
+        self.rect_rock=pygame.rect.Rect(self._x,self.rock.y,self.size[0],self.size[1])
 
 
     def draw(self, place: pygame.Surface):

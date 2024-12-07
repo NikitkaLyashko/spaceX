@@ -22,14 +22,10 @@ def view():
     pygame.display.set_caption(str(int(model.clock.get_fps())))
     for rock_view in model.rocks:
         rock_view.draw(wind)
-        # if model.del_rock_from_model==1:
-        #     rock_view.draw(wind)
-        #     model.rocks.remove(rock_view)
-        #     model.del_rock_from_model=0
 
-    # for view_bullet in model.bullets:
+    for view_bullet in model.bullets:
 
-        # view_bullet.draw(wind)
+        view_bullet.draw(wind)
 
 
 

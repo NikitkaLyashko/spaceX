@@ -2,6 +2,7 @@ import random
 
 import pygame.time,bulba
 
+import messenger
 import player,class_HP
 import rock_space
 
@@ -17,7 +18,7 @@ def moving_ship_2(x):
 
 def move_rock():
     global  del_rock_from_model
-    next_rock=rock_space.Rock_space(random.randint(30,1500),30)
+    next_rock=rock_space.Rock_space(random.randint(30,1500),30,50)
     rocks.append(next_rock)
     for del_rock in rocks:
 
@@ -30,8 +31,10 @@ def new_bullet():
     bullets.append(bulba_object)
 
 
+def getter_mess(mess,who,plus_dok):
+    print(mess,who,plus_dok)
 
-
+messenger.add_sub_def(getter_mess)
 
 main_ship=player.Player("sprites/Enemy.png",[120,120],700,550)
 ship_2=second_ship.Second_ship(-50,300)
