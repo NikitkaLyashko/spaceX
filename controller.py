@@ -17,7 +17,7 @@ free_rock=pygame.event.custom_type()
 pygame.key.set_repeat(10)
 pygame.time.set_timer(free_type, 10)
 pygame.time.set_timer(free_type2, 10000)
-pygame.time.set_timer(free_rock,500)
+pygame.time.set_timer(free_rock,5000)
 
 
 

@@ -32,7 +32,18 @@ def new_bullet():
 
 
 def getter_mess(mess,who,plus_dok):
-    print(mess,who,plus_dok)
+    global rocks
+    if who not in bullets:
+        return
+    small_rock1=rock_space.Rock_space(plus_dok.rect_rock.x,plus_dok.rect_rock.y-100,15)
+    small_rock2=rock_space.Rock_space(plus_dok.rect_rock.x,plus_dok.rect_rock.y-100,15)
+    small_rock3=rock_space.Rock_space(plus_dok.rect_rock.x,plus_dok.rect_rock.y-100,15)
+    rocks.append(small_rock1)
+    rocks.append(small_rock2)
+    rocks.append(small_rock3)
+    bullets.remove(who)
+
+    print(len(rocks))
 
 messenger.add_sub_def(getter_mess)
 
