@@ -28,7 +28,7 @@ def cotroller():
     for controller_rock in model.rocks:
         controller_rock.controller(events)
 
-    for bullet2 in model.bullets:
+    for bullet2 in model.bullets.copy():
         bullet2.controller(events)
 
     for event in events:
@@ -54,6 +54,7 @@ def cotroller():
             ###Есть класс бульба###
 
         if event.type==free_rock:
+            model.move_rock()
             model.move_rock()
 
         if event.type==free_type:

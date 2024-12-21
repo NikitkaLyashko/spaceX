@@ -23,7 +23,10 @@ class Bullet():
         for rock_in_rocks in self.rocks:
             if self.rect_bulba.colliderect(rock_in_rocks.rect_rock):
                 self.rocks.remove(rock_in_rocks)
-                messenger.broadcast("bullet broke rock",self,rock_in_rocks)
+                messenger.broadcast("bullet broke rock", self, rock_in_rocks)
+
+                return 123
+
 
 
     def draw(self, place: pygame.Surface):
@@ -32,13 +35,13 @@ class Bullet():
 
 
     def controller(self,events):
-
         for event in events:
 
             if event.type == free_type:
                 self.bulba.y -= 2
                 self.rect_bulba.y-=2
-                self.rect_bullet()
+                if self.rect_bullet()==123:
+                    return
                 # self.bulba.
                 # self.bulba.x+=3
                 # self.bulba.rotation_def()

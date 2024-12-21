@@ -18,7 +18,7 @@ def moving_ship_2(x):
 
 def move_rock():
     global  del_rock_from_model
-    next_rock=rock_space.Rock_space(random.randint(30,1500),30,50)
+    next_rock=rock_space.Rock_space(random.randint(30,30),30,50)
     rocks.append(next_rock)
     for del_rock in rocks:
 
@@ -35,15 +35,15 @@ def getter_mess(mess,who,plus_dok):
     global rocks
     if who not in bullets:
         return
-    small_rock1=rock_space.Rock_space(plus_dok.rect_rock.x,plus_dok.rect_rock.y-100,15)
-    small_rock2=rock_space.Rock_space(plus_dok.rect_rock.x,plus_dok.rect_rock.y-100,15)
-    small_rock3=rock_space.Rock_space(plus_dok.rect_rock.x,plus_dok.rect_rock.y-100,15)
-    rocks.append(small_rock1)
-    rocks.append(small_rock2)
-    rocks.append(small_rock3)
+    # small_rock1=rock_space.Rock_space(plus_dok.rect_rock.x,plus_dok.rect_rock.y-100,15)
+    # small_rock2=rock_space.Rock_space(plus_dok.rect_rock.x,plus_dok.rect_rock.y-100,15)
+    # # small_rock3=rock_space.Rock_space(plus_dok.rect_rock.x,plus_dok.rect_rock.y-100,15)
+    # rocks.append(small_rock1)
+    # rocks.append(small_rock2)
+    # rocks.append(small_rock3)
     bullets.remove(who)
 
-    print(len(rocks))
+
 
 messenger.add_sub_def(getter_mess)
 

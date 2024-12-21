@@ -29,9 +29,9 @@ class Rock_space():
 
             if event.type == free_type:
                 self.rock.y += 1
-                self.rock.x+=self.x__
+                # self.rock.x+=self.x__
                 self.rect_rock.y+=1
-                self.rect_rock.x=self.rock.x
+                # self.rect_rock.x=self.rock.x
                 self.rock.rotation_def()
 
 
