@@ -24,7 +24,6 @@ class Bullet():
             if self.rect_bulba.colliderect(rock_in_rocks.rect_rock):
                 self.rocks.remove(rock_in_rocks)
                 messenger.broadcast("bullet broke rock", self, rock_in_rocks)
-
                 return 123
 
 

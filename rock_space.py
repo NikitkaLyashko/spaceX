@@ -1,5 +1,8 @@
 import pygame,picture,random
 
+import messenger
+
+
 pygame.init()
 
 free_type = pygame.event.custom_type()
@@ -16,6 +19,7 @@ class Rock_space():
         self.rect_rock=pygame.rect.Rect(x,y,self.size[0],self.size[1])
 
 
+
     def draw(self, place: pygame.Surface):
         self.rock.draw(place)
         pygame.draw.rect(place,[0,0,222],self.rect_rock,1)
@@ -29,10 +33,15 @@ class Rock_space():
 
             if event.type == free_type:
                 self.rock.y += 1
-                # self.rock.x+=self.x__
+                self.rock.x+=self.x__
                 self.rect_rock.y+=1
-                # self.rect_rock.x=self.rock.x
+                self.rect_rock.x=self.rock.x
                 self.rock.rotation_def()
+
+                if self.rect_rock.bottom>=700:
+                    messenger.broadcast("камень достиг пола",self)
+
+
 
 
 

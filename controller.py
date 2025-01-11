@@ -55,7 +55,7 @@ def cotroller():
 
         if event.type==free_rock:
             model.move_rock()
-            model.move_rock()
+
 
         if event.type==free_type:
             model.moving_ship_2(5)
