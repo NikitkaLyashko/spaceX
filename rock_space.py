@@ -38,8 +38,18 @@ class Rock_space():
                 self.rect_rock.x=self.rock.x
                 self.rock.rotation_def()
 
+                if self.rect_rock.right>=1500:
+                    messenger.broadcast("камень вылете за грань",self)
+                    return
+                if self.rect_rock.left<=0:
+                    messenger.broadcast("камень вылете за грань",self)
+                    return
+
                 if self.rect_rock.bottom>=700:
                     messenger.broadcast("камень достиг пола",self)
+                    return
+
+
 
 
 

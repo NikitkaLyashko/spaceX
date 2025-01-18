@@ -7,4 +7,3 @@ while True:
     view.view()
     controller.cotroller()
     clock.tick(60)
-    print(len(rocks))

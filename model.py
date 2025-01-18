@@ -46,8 +46,15 @@ def getter_mess(mess,who,plus_dok):
     rocks.append(small_rock3)
 
 def rock_touch_floor(mess,who,plus_dok):
-    if mess=="камень достиг пола":
+    if mess=="камень достиг пола" and who.size==[50,50]:
         line_HP.now_hp-=30
+        rocks.remove(who)
+
+    if mess=="камень достиг пола" and who.size==[15,15]:
+        print("1")
+        line_HP.now_hp-=5
+        rocks.remove(who)
+    if mess=="камень вылете за грань":
         rocks.remove(who)
 
 
