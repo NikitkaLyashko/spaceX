@@ -16,6 +16,17 @@ def moving_ship_2(x):
     ship_2.X+=5
     return 123
 
+def first_rock():
+    global  del_rock_from_model
+    next_rock=rock_space.Rock_space(random.randint(30,1450),30,50)
+    rocks.append(next_rock)
+    for del_rock in rocks:
+
+        if del_rock.rock.y >= 700:
+            rocks.remove(del_rock)
+            del_rock_from_model=1
+
+
 def move_rock():
     global  del_rock_from_model
     next_rock=rock_space.Rock_space(random.randint(30,1450),30,50)

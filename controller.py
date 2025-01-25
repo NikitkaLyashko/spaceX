@@ -2,22 +2,23 @@ import random
 
 import pygame
 
-import model , bulba
-import player
-import rock_space
-import view
-from model import moving_ship_2, move_rock
+import model , bulba,levl
+
 
 free_type = pygame.event.custom_type()
 free_type2 = pygame.event.custom_type()
-free_rock=pygame.event.custom_type()
-
+first_rock=pygame.event.custom_type()
+move_rock=pygame.event.custom_type()
+dictionary=levl.waves[0]
 
 #set_repeat - вкючение ежима зажатия клавиш
 pygame.key.set_repeat(10)
 pygame.time.set_timer(free_type, 10)
 pygame.time.set_timer(free_type2, 10000)
-pygame.time.set_timer(free_rock,5000)
+pygame.time.set_timer(first_rock,dictionary["начаьная_задержка"],1)
+
+
+
 
 
 
@@ -53,9 +54,13 @@ def cotroller():
             ###По задумке бульба должна лететь пр нажат на кнопку ЛКМ.###
             ###Есть класс бульба###
 
-        if event.type==free_rock:
-            model.move_rock()
 
+        if event.type==first_rock:
+            model.first_rock()
+            pygame.time.set_timer(move_rock, dictionary["задержка_меж_камней"])
+
+        if event.type == move_rock:
+            model.move_rock()
 
         if event.type==free_type:
             model.moving_ship_2(5)
