@@ -3,23 +3,7 @@ import random
 import pygame
 
 import model , bulba,levl
-
-
-free_type = pygame.event.custom_type()
-free_type2 = pygame.event.custom_type()
-first_rock=pygame.event.custom_type()
-move_rock=pygame.event.custom_type()
-dictionary=levl.waves[0]
-
-#set_repeat - вкючение ежима зажатия клавиш
-pygame.key.set_repeat(10)
-pygame.time.set_timer(free_type, 10)
-pygame.time.set_timer(free_type2, 10000)
-pygame.time.set_timer(first_rock,dictionary["начаьная_задержка"],1)
-
-
-
-
+from levl import waves
 
 
 def cotroller():
@@ -56,11 +40,15 @@ def cotroller():
 
 
         if event.type==first_rock:
-            model.first_rock()
+            model.spawn_rock()
+            pygame.time.set_timer(move_rock, dictionary["задержка_меж_камней"])
+
+        if event.type==second_rock:
+            model.spawn_rock()
             pygame.time.set_timer(move_rock, dictionary["задержка_меж_камней"])
 
         if event.type == move_rock:
-            model.move_rock()
+            model.spawn_rock()
 
         if event.type==free_type:
             model.moving_ship_2(5)
@@ -70,4 +58,30 @@ def cotroller():
 
         if event.type==pygame.QUIT:
             exit()
+
+
+def next_level(index):
+    global  dictionary
+    first_rock = pygame.event.custom_type()
+    dictionary = levl.waves[index]
+    dictionary["номер события таймера"]=first_rock
+    pygame.time.set_timer(first_rock, dictionary["начаьная_задержка"], 1)
+
+    return first_rock
+
+
+free_type = pygame.event.custom_type()
+free_type2 = pygame.event.custom_type()
+move_rock=pygame.event.custom_type()
+
+#set_repeat - вкючение ежима зажатия клавиш
+pygame.key.set_repeat(10)
+pygame.time.set_timer(free_type, 10)
+pygame.time.set_timer(free_type2, 10000)
+
+
+colichstvo_voln=len(levl.waves)
+for volna  in range(colichstvo_voln):
+    first_rock=next_level(volna)
+print(levl.waves)
 
