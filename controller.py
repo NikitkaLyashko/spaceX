@@ -31,21 +31,16 @@ def cotroller():
         if event.type==pygame.MOUSEBUTTONDOWN and event.button==pygame.BUTTON_LEFT:
             model.new_bullet()
 
-
-
-
-
             ###По задумке бульба должна лететь пр нажат на кнопку ЛКМ.###
             ###Есть класс бульба###
 
+        for wave in levl.waves:
 
-        if event.type==first_rock:
-            model.spawn_rock()
-            pygame.time.set_timer(move_rock, dictionary["задержка_меж_камней"])
+            if event.type == wave["номер события таймера"]:
+                model.spawn_rock()
+                pygame.time.set_timer(move_rock, wave["задержка_меж_камней"])
 
-        if event.type==second_rock:
-            model.spawn_rock()
-            pygame.time.set_timer(move_rock, dictionary["задержка_меж_камней"])
+
 
         if event.type == move_rock:
             model.spawn_rock()
@@ -61,13 +56,13 @@ def cotroller():
 
 
 def next_level(index):
-    global  dictionary
+
     first_rock = pygame.event.custom_type()
     dictionary = levl.waves[index]
     dictionary["номер события таймера"]=first_rock
     pygame.time.set_timer(first_rock, dictionary["начаьная_задержка"], 1)
 
-    return first_rock
+
 
 
 free_type = pygame.event.custom_type()
@@ -82,6 +77,6 @@ pygame.time.set_timer(free_type2, 10000)
 
 colichstvo_voln=len(levl.waves)
 for volna  in range(colichstvo_voln):
-    first_rock=next_level(volna)
+    next_level(volna)
 print(levl.waves)
 
