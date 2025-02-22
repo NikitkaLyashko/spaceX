@@ -1,5 +1,6 @@
 import random
 
+
 import pygame
 
 import model , bulba,levl
@@ -7,6 +8,7 @@ from levl import waves
 
 
 def cotroller():
+    global koord
     events=pygame.event.get()
 
 
@@ -36,14 +38,24 @@ def cotroller():
 
         for wave in levl.waves:
 
+            # IF дает понять какая сейчас волна
             if event.type == wave["номер события таймера"]:
-                model.spawn_rock()
-                pygame.time.set_timer(move_rock, wave["задержка_меж_камней"])
+
+                ###move_rock-создание нового ключа и запись свободного события для начавшейся волны
+                wave["move_rock"]=pygame.event.custom_type()
+                pygame.time.set_timer(wave["move_rock"], wave["задержка_меж_камней"])
+
+                #в пременную запись значения ключа  , 48,49 создание 1го камня
+                koord = wave["координаты"]
+                model.spawn_rock(koord)
+
+        for wave in levl.waves:
+
+            if "move_rock" in wave and event.type == wave["move_rock"]:
+
+                model.spawn_rock(wave["координаты"])
 
 
-
-        if event.type == move_rock:
-            model.spawn_rock()
 
         if event.type==free_type:
             model.moving_ship_2(5)
@@ -65,9 +77,10 @@ def next_level(index):
 
 
 
+
 free_type = pygame.event.custom_type()
 free_type2 = pygame.event.custom_type()
-move_rock=pygame.event.custom_type()
+
 
 #set_repeat - вкючение ежима зажатия клавиш
 pygame.key.set_repeat(10)

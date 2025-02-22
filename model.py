@@ -19,9 +19,9 @@ def moving_ship_2(x):
 
 
 
-def spawn_rock():
+def spawn_rock(coordination):
     global  del_rock_from_model
-    next_rock=rock_space.Rock_space(random.randint(30,1450),30,50)
+    next_rock=rock_space.Rock_space(random.randint(coordination[0],coordination[1]),30,50)
     rocks.append(next_rock)
     for del_rock in rocks:
 
