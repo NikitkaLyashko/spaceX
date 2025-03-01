@@ -51,9 +51,13 @@ def cotroller():
 
         for wave in levl.waves:
 
-            if "move_rock" in wave and event.type == wave["move_rock"]:
-
+            if "move_rock" in wave and event.type == wave["move_rock"] :
                 model.spawn_rock(wave["координаты"])
+                wave["кол-во_камней"]-=1
+                if wave["кол-во_камней"]==1:
+                    pygame.time.set_timer(wave["move_rock"],0)
+
+
 
 
 
@@ -72,9 +76,8 @@ def next_level(index):
     first_rock = pygame.event.custom_type()
     dictionary = levl.waves[index]
     dictionary["номер события таймера"]=first_rock
+    ###закинет фест рок через врем отведенное дикшинари###
     pygame.time.set_timer(first_rock, dictionary["начаьная_задержка"], 1)
-
-
 
 
 
