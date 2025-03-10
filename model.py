@@ -52,6 +52,9 @@ def rock_touch_floor(mess,who,plus_dok):
     if mess=="камень достиг пола" and who.size==[50,50]:
         line_HP.now_hp-=30
         rocks.remove(who)
+    if mess=="ХП_закончилось":
+        exit()
+
 
     if mess=="камень достиг пола" and who.size==[15,15]:
         print("1")
@@ -74,3 +77,4 @@ rocks=[]
 bullets=[]
 del_rock_from_model=0
 line_HP=class_HP.Hp(1170,25,300,50,500,500)
+line_HP.HP_line()
