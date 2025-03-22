@@ -5,7 +5,7 @@ import pygame.time,bulba
 import messenger
 import player,class_HP
 import rock_space
-
+import text_on_screen
 import second_ship
 
 
@@ -75,5 +75,5 @@ rocks=[]
 bullets=[]
 del_rock_from_model=0
 line_HP=class_HP.Hp(1170,25,300,50,500,500)
-
+text_object_screen=text_on_screen.Text_on_screen(pygame.display.get_window_size(),80)
 

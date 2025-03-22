@@ -1,11 +1,10 @@
-import class_HP
-import model,picture,pygame
-import player
-from model import clock, rocks
 
+import picture,pygame
 pygame.init()
-text=pygame.font.SysFont("Arial",50)
 wind=pygame.display.set_mode([1500,700])
+import model
+
+text=pygame.font.SysFont("Arial",50)
 cosmos=picture.Picture("sprites/background.jpg", [1500, 700], 0, 0)
 
 
@@ -18,6 +17,8 @@ def view():
     model.line_HP.draw_hp(wind)
     model.ship_2.draw(wind)
     model.main_ship.draw(wind)
+    model.text_object_screen.draw_text(wind)
+
 
     pygame.display.set_caption(str(int(model.clock.get_fps())))
     for rock_view in model.rocks:
