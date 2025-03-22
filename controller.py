@@ -22,10 +22,10 @@ def cotroller():
 
         if event.type==pygame.KEYDOWN and event.key==pygame.K_d:
 
-            model.moving_ship(5)
+            model.moving_ship(10)
 
         if event.type == pygame.KEYDOWN and event.key == pygame.K_a:
-            model.moving_ship(-5)
+            model.moving_ship(-10)
 
         if event.type==pygame.KEYUP and event.key== pygame.K_SPACE:
             model.line_HP.now_hp=random.randint(5,1000)

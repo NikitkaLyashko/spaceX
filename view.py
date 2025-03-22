@@ -16,7 +16,6 @@ cosmos=picture.Picture("sprites/background.jpg", [1500, 700], 0, 0)
 def view():
     cosmos.draw(wind)
     model.line_HP.draw_hp(wind)
-    model.line_HP_2.draw_hp(wind)
     model.ship_2.draw(wind)
     model.main_ship.draw(wind)
 
