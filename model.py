@@ -1,6 +1,7 @@
 import random
 
-import pygame.time,bulba
+import pygame.time,bulba,process
+
 
 import messenger
 import player,class_HP
@@ -75,5 +76,6 @@ rocks=[]
 bullets=[]
 del_rock_from_model=0
 line_HP=class_HP.Hp(1170,25,300,50,500,500)
-text_object_screen=text_on_screen.Text_on_screen(pygame.display.get_window_size(),80)
+text=process.Process("Уровень 1",3000)
+text.starter()
 

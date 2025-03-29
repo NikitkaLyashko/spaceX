@@ -1,5 +1,5 @@
 
-import picture,pygame
+import picture,pygame,process
 pygame.init()
 wind=pygame.display.set_mode([1500,700])
 import model
@@ -17,7 +17,7 @@ def view():
     model.line_HP.draw_hp(wind)
     model.ship_2.draw(wind)
     model.main_ship.draw(wind)
-    model.text_object_screen.draw_text(wind)
+    model.text.draw(wind)
 
 
     pygame.display.set_caption(str(int(model.clock.get_fps())))

@@ -11,6 +11,9 @@ def cotroller():
     global koord
     events=pygame.event.get()
 
+    for control_text in  [model.text]:
+        control_text.controller(events)
+
 
     for controller_rock in model.rocks:
         controller_rock.controller(events)
