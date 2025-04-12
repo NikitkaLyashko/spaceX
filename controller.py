@@ -5,13 +5,14 @@ import pygame
 
 import model , bulba,levl
 from levl import waves
+from model import text_2
 
 
 def cotroller():
     global koord
     events=pygame.event.get()
 
-    for control_text in  [model.text]:
+    for control_text in  [model.text,model.text_2]:
         control_text.controller(events)
 
 

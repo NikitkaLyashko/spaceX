@@ -18,6 +18,7 @@ def view():
     model.ship_2.draw(wind)
     model.main_ship.draw(wind)
     model.text.draw(wind)
+    model.text_2.draw(wind)
 
 
     pygame.display.set_caption(str(int(model.clock.get_fps())))

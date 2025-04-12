@@ -76,6 +76,11 @@ rocks=[]
 bullets=[]
 del_rock_from_model=0
 line_HP=class_HP.Hp(1170,25,300,50,500,500)
-text=process.Process("Уровень 1",3000)
+
+text=process.Process("Уровень 1",1000)
+
+text_2=process.Process("на страт",1000,text)
+
+
 text.starter()
 
