@@ -1,6 +1,7 @@
-import pygame,picture
+import pygame,picture,visual_obj
 
-class Player():
+
+class Player(visual_obj.Visual_obj):
     def __init__(self,put,size,x,y):
         self.put=put
         self.size=size

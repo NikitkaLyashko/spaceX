@@ -11,14 +11,16 @@ cosmos=picture.Picture("sprites/background.jpg", [1500, 700], 0, 0)
 
 
 
-
+list_draw=[    cosmos,
+    model.line_HP,
+    model.ship_2,
+    model.main_ship,
+    model.text,
+    model.text_2,
+    model.game_over]
 def view():
-    cosmos.draw(wind)
-    model.line_HP.draw_hp(wind)
-    model.ship_2.draw(wind)
-    model.main_ship.draw(wind)
-    model.text.draw(wind)
-    model.text_2.draw(wind)
+    for draw_object in list_draw:
+        draw_object.draw(wind)
 
 
     pygame.display.set_caption(str(int(model.clock.get_fps())))

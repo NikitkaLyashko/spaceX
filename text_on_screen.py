@@ -1,9 +1,9 @@
 import random
 
 
-import pygame
+import pygame,visual_obj
 
-class Text_on_screen():
+class Text_on_screen(visual_obj.Visual_obj):
     def __init__(self,text,size_window,size):
         self.size_window=size_window
         self.text=text
@@ -14,7 +14,7 @@ class Text_on_screen():
 
 
 
-    def draw_text(self,place: pygame.Surface):
+    def draw(self,place: pygame.Surface):
         x=self.size_window[0]/2-(self.picture_lev1.get_width()/2)
         y=self.size_window[1]/2-(self.size/2)
         place.blit(self.picture_lev1,[x,y])

@@ -1,11 +1,11 @@
-import pygame,picture
+import pygame,picture,visual_obj
 
 import messenger
 
 pygame.init()
 free_type = pygame.event.custom_type()
 pygame.time.set_timer(free_type, 10)
-class Bullet():
+class Bullet(visual_obj.Visual_obj):
     def __init__(self,put,size,x,y,rocks):
 
         self.put=put

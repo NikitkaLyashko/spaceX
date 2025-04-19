@@ -1,6 +1,6 @@
-import pygame,picture
+import pygame,picture,visual_obj
 
-class Second_ship():
+class Second_ship(visual_obj.Visual_obj):
     def __init__(self,x,y):
         self._x=x
         self.y=y

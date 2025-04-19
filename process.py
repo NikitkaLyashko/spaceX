@@ -1,6 +1,6 @@
-import pygame,text_on_screen
+import pygame,text_on_screen,visual_obj
 
-class Process():
+class Process(visual_obj.Visual_obj):
     def __init__(self,text:str,live_time:int,who_im_waiting=None):
 
         self.text=text
@@ -32,4 +32,4 @@ class Process():
     def draw(self,place: pygame.Surface):
         if self.status=="started":
             text_11=text_on_screen.Text_on_screen(self.text,pygame.display.get_window_size(),80)
-            text_11.draw_text(place)
+            text_11.draw(place)

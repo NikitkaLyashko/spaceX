@@ -1,4 +1,5 @@
-import pygame,picture,random
+import pygame,picture,random,visual_obj
+
 
 import messenger
 
@@ -8,7 +9,7 @@ pygame.init()
 free_type = pygame.event.custom_type()
 pygame.time.set_timer(free_type, 10)
 
-class Rock_space():
+class Rock_space(visual_obj.Visual_obj):
 
     def __init__(self,x,y,size=50):
 

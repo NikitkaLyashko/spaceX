@@ -8,6 +8,7 @@ import player,class_HP
 import rock_space
 import text_on_screen
 import second_ship
+import free_process
 
 
 def moving_ship(x):
@@ -16,6 +17,7 @@ def moving_ship(x):
 def moving_ship_2(x):
     ship_2.X+=5
     return 123
+
 
 
 
@@ -61,6 +63,7 @@ def rock_touch_floor(mess,who,plus_dok):
         rocks.remove(who)
 
     if mess=="ХП_закончилось":
+        game.the_end_def()
         exit()
 
 
@@ -77,9 +80,14 @@ bullets=[]
 del_rock_from_model=0
 line_HP=class_HP.Hp(1170,25,300,50,500,500)
 
-text=process.Process("Уровень 1",1000)
+game=free_process.Process()
 
+
+text=process.Process("Уровень 1",1000)
 text_2=process.Process("на страт",1000,text)
+game_over=process.Process("Поражение",3000,text_2)
+game
+
 
 
 text.starter()
