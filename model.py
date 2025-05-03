@@ -20,18 +20,6 @@ def moving_ship_2(x):
 
 
 
-
-
-def spawn_rock(coordination):
-    global  del_rock_from_model
-    next_rock=rock_space.Rock_space(random.randint(coordination[0],coordination[1]),30,50)
-    rocks.append(next_rock)
-    for del_rock in rocks:
-
-        if del_rock.rock.y >= 700:
-            rocks.remove(del_rock)
-            del_rock_from_model=1
-
 def new_bullet():
     bulba_object = bulba.Bullet("sprites/bullet.png", [7, 13], main_ship.X + 57, main_ship.Y + 57,rocks)
     bullets.append(bulba_object)
@@ -86,7 +74,7 @@ game=free_process.Process()
 text=process.Process("Уровень 1",1000)
 text_2=process.Process("на страт",1000,text)
 game_over=process.Process("Поражение",3000,text_2)
-game
+# game.starter()
 
 
 

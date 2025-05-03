@@ -1,7 +1,8 @@
 import random
 
 
-import pygame
+import pygame,start_yrovnei
+
 
 import model , bulba,levl
 from levl import waves
@@ -9,7 +10,7 @@ from model import text_2
 
 
 def cotroller():
-    global koord
+    global koord,events
     events=pygame.event.get()
 
     for control_text in  [model.text,model.text_2]:
@@ -21,6 +22,8 @@ def cotroller():
 
     for bullet2 in model.bullets.copy():
         bullet2.controller(events)
+
+    wavee.controller(events)
 
     for event in events:
 
@@ -36,30 +39,30 @@ def cotroller():
 
         if event.type==pygame.MOUSEBUTTONDOWN and event.button==pygame.BUTTON_LEFT:
             model.new_bullet()
-
-            ###По задумке бульба должна лететь пр нажат на кнопку ЛКМ.###
-            ###Есть класс бульба###
-
-        for wave in levl.waves:
-
-            # IF дает понять какая сейчас волна
-            if event.type == wave["номер события таймера"]:
-
-                ###move_rock-создание нового ключа и запись свободного события для начавшейся волны
-                wave["move_rock"]=pygame.event.custom_type()
-                pygame.time.set_timer(wave["move_rock"], wave["задержка_меж_камней"])
-
-                #в пременную запись значения ключа  , 48,49 создание 1го камня
-                koord = wave["координаты"]
-                model.spawn_rock(koord)
-
-        for wave in levl.waves:
-
-            if "move_rock" in wave and event.type == wave["move_rock"] :
-                model.spawn_rock(wave["координаты"])
-                wave["кол-во_камней"]-=1
-                if wave["кол-во_камней"]==1:
-                    pygame.time.set_timer(wave["move_rock"],0)
+        #
+        #     ##По задумке бульба должна лететь пр нажат на кнопку ЛКМ.###
+        #     ##Есть класс бульба###
+        #
+        # for wave in levl.waves:
+        #
+        #     # IF дает понять какая сейчас волна
+        #     if event.type == wave["номер события таймера"]:
+        #
+        #         ###move_rock-создание нового ключа и запись свободного события для начавшейся волны
+        #         wave["move_rock"]=pygame.event.custom_type()
+        #         pygame.time.set_timer(wave["move_rock"], wave["задержка_меж_камней"])
+        #
+        #         #в пременную запись значения ключа  , 48,49 создание 1го камня
+        #         koord = wave["координаты"]
+        #         model.spawn_rock(koord)
+        #
+        # for wave in levl.waves:
+        #
+        #     if "move_rock" in wave and event.type == wave["move_rock"] :
+        #         model.spawn_rock(wave["координаты"])
+        #         wave["кол-во_камней"]-=1
+        #         if wave["кол-во_камней"]==1:
+        #             pygame.time.set_timer(wave["move_rock"],0)
 
 
 
@@ -74,14 +77,14 @@ def cotroller():
         if event.type==pygame.QUIT:
             exit()
 
-
-def next_level(index):
-
-    first_rock = pygame.event.custom_type()
-    dictionary = levl.waves[index]
-    dictionary["номер события таймера"]=first_rock
-    ###закинет фест рок через врем отведенное дикшинари###
-    pygame.time.set_timer(first_rock, dictionary["начаьная_задержка"], 1)
+#
+# def next_level(index):
+#
+#     first_rock = pygame.event.custom_type()
+#     dictionary = levl.waves[index]
+#     dictionary["номер события таймера"]=first_rock
+#     ###закинет фест рок через врем отведенное дикшинари###
+#     pygame.time.set_timer(first_rock, dictionary["начаьная_задержка"], 1)
 
 
 
@@ -94,9 +97,10 @@ pygame.key.set_repeat(10)
 pygame.time.set_timer(free_type, 10)
 pygame.time.set_timer(free_type2, 10000)
 
+#
+# colichstvo_voln=len(levl.waves)
+# for volna  in range(colichstvo_voln):
+#     next_level(volna)
+# print(levl.waves)
 
-colichstvo_voln=len(levl.waves)
-for volna  in range(colichstvo_voln):
-    next_level(volna)
-print(levl.waves)
-
+wavee=start_yrovnei.Start_yrovnei(levl.waves)
