@@ -17,13 +17,11 @@ def cotroller():
         control_text.controller(events)
 
 
-    for controller_rock in model.rocks:
-        controller_rock.controller(events)
 
     for bullet2 in model.bullets.copy():
         bullet2.controller(events)
 
-    wavee.controller(events)
+    model.wavee.controller(events)
 
     for event in events:
 
@@ -103,4 +101,3 @@ pygame.time.set_timer(free_type2, 10000)
 #     next_level(volna)
 # print(levl.waves)
 
-wavee=start_yrovnei.Start_yrovnei(levl.waves)

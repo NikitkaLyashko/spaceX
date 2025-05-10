@@ -1,8 +1,10 @@
 
 import picture,pygame,process
+
+
 pygame.init()
 wind=pygame.display.set_mode([1500,700])
-import model
+import model,start_yrovnei
 
 text=pygame.font.SysFont("Arial",50)
 cosmos=picture.Picture("sprites/background.jpg", [1500, 700], 0, 0)
@@ -24,8 +26,9 @@ def view():
 
 
     pygame.display.set_caption(str(int(model.clock.get_fps())))
-    for rock_view in model.rocks:
-        rock_view.draw(wind)
+
+
+    model.wavee.draw(wind)
 
     for view_bullet in model.bullets:
 

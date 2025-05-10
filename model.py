@@ -2,7 +2,7 @@ import random
 
 import pygame.time,bulba,process
 
-
+import start_yrovnei,levl
 import messenger
 import player,class_HP
 import rock_space
@@ -35,9 +35,9 @@ def getter_mess(mess,who,plus_dok):
     small_rock1=rock_space.Rock_space(plus_dok.rect_rock.centerx,plus_dok.rect_rock.y,15)
     small_rock2=rock_space.Rock_space(plus_dok.rect_rock.centerx,plus_dok.rect_rock.y,15)
     small_rock3=rock_space.Rock_space(plus_dok.rect_rock.centerx,plus_dok.rect_rock.y,15)
-    rocks.append(small_rock1)
-    rocks.append(small_rock2)
-    rocks.append(small_rock3)
+    # rocks.append(small_rock1)
+    # rocks.append(small_rock2)
+    # rocks.append(small_rock3)
 
 def rock_touch_floor(mess,who,plus_dok):
     if mess=="камень достиг пола":
@@ -45,10 +45,10 @@ def rock_touch_floor(mess,who,plus_dok):
             line_HP.change_hp(-30)
         else:
             line_HP.change_hp(-5)
-        rocks.remove(who)
 
-    if mess=="камень вылете за грань":
-        rocks.remove(who)
+
+    # if mess=="камень вылете за грань":
+        # rocks.remove(who)
 
     if mess=="ХП_закончилось":
         game.the_end_def()
@@ -63,7 +63,7 @@ main_ship=player.Player("sprites/Enemy.png",[120,120],700,550)
 ship_2=second_ship.Second_ship(-50,300)
 clock=pygame.time.Clock()
 # next_rock=rock_space.Rock_space(700,0)
-rocks=[]
+
 bullets=[]
 del_rock_from_model=0
 line_HP=class_HP.Hp(1170,25,300,50,500,500)
@@ -76,7 +76,7 @@ text_2=process.Process("на страт",1000,text)
 game_over=process.Process("Поражение",3000,text_2)
 # game.starter()
 
-
+wavee=start_yrovnei.Start_yrovnei(levl.waves)
 
 text.starter()
 

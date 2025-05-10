@@ -1,5 +1,5 @@
 import view,controller,time
-from model import clock,rocks
+from model import clock
 
 while True:
 
